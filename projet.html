@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Page Application</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <?php
+    session_start();
+
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+        include 'welcome.php';
+    } else {
+        include 'login.php';
+    }
+    ?>
+
+    <script src="script.js"></script>
+</body>
+</html>
