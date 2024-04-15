@@ -1,21 +1,14 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Single Page Application</title>
+    <title>Mon application ConceptNet</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <?php
-    session_start();
+    <div id="app"></div>
 
-    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        include 'welcome.php';
-    } else {
-        include 'login.php';
-    }
-    ?>
-
-    <script src="script.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="sammy.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
