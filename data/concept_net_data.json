@@ -1,0 +1,746 @@
+{
+    "@context": [
+      "http://api.conceptnet.io/ld/conceptnet5.7/context.ld.json"
+    ],
+    "@id": "/c/en/example",
+    "edges": [
+      {
+        "@id": "/a/[/r/Synonym/,/c/ca/exemple/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ca/exemple/n/wn/communication",
+          "@type": "Node",
+          "label": "exemple",
+          "language": "ca",
+          "sense_label": "n, communication",
+          "term": "/c/ca/exemple"
+        },
+        "surfaceText": "[[exemple]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/代表/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/代表/n/wn/cognition",
+          "@type": "Node",
+          "label": "代表",
+          "language": "ja",
+          "sense_label": "n, cognition",
+          "term": "/c/ja/代表"
+        },
+        "surfaceText": "[[代表]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/例/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/例/n/wn/cognition",
+          "@type": "Node",
+          "label": "例",
+          "language": "ja",
+          "sense_label": "n, cognition",
+          "term": "/c/ja/例"
+        },
+        "surfaceText": "[[例]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/RelatedTo/,/c/en/exemplify/v/,/c/en/example/]",
+        "@type": "Edge",
+        "dataset": "/d/wiktionary/en",
+        "end": {
+          "@id": "/c/en/example",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by-sa/4.0",
+        "rel": {
+          "@id": "/r/RelatedTo",
+          "@type": "Relation",
+          "label": "RelatedTo"
+        },
+        "sources": [
+          {
+            "@id": "/and/[/s/process/wikiparsec/2/,/s/resource/wiktionary/en/]",
+            "@type": "Source",
+            "contributor": "/s/resource/wiktionary/en",
+            "process": "/s/process/wikiparsec/2"
+          },
+          {
+            "@id": "/and/[/s/process/wikiparsec/2/,/s/resource/wiktionary/fr/]",
+            "@type": "Source",
+            "contributor": "/s/resource/wiktionary/fr",
+            "process": "/s/process/wikiparsec/2"
+          }
+        ],
+        "start": {
+          "@id": "/c/en/exemplify/v",
+          "@type": "Node",
+          "label": "exemplify",
+          "language": "en",
+          "sense_label": "v",
+          "term": "/c/en/exemplify"
+        },
+        "surfaceText": null,
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/RelatedTo/,/c/en/exemplary/a/,/c/en/example/]",
+        "@type": "Edge",
+        "dataset": "/d/wiktionary/en",
+        "end": {
+          "@id": "/c/en/example",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by-sa/4.0",
+        "rel": {
+          "@id": "/r/RelatedTo",
+          "@type": "Relation",
+          "label": "RelatedTo"
+        },
+        "sources": [
+          {
+            "@id": "/and/[/s/process/wikiparsec/2/,/s/resource/wiktionary/en/]",
+            "@type": "Source",
+            "contributor": "/s/resource/wiktionary/en",
+            "process": "/s/process/wikiparsec/2"
+          },
+          {
+            "@id": "/and/[/s/process/wikiparsec/2/,/s/resource/wiktionary/fr/]",
+            "@type": "Source",
+            "contributor": "/s/resource/wiktionary/fr",
+            "process": "/s/process/wikiparsec/2"
+          }
+        ],
+        "start": {
+          "@id": "/c/en/exemplary/a",
+          "@type": "Node",
+          "label": "exemplary",
+          "language": "en",
+          "sense_label": "a",
+          "term": "/c/en/exemplary"
+        },
+        "surfaceText": null,
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/en/illustration/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/en/illustration/n/wn/cognition",
+          "@type": "Node",
+          "label": "illustration",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/illustration"
+        },
+        "surfaceText": "[[illustration]] is a synonym of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ms/peringatan/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ms/peringatan/n/wn/communication",
+          "@type": "Node",
+          "label": "peringatan",
+          "language": "ms",
+          "sense_label": "n, communication",
+          "term": "/c/ms/peringatan"
+        },
+        "surfaceText": "[[peringatan]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/お手本/n/,/c/en/example/]",
+        "@type": "Edge",
+        "dataset": "/d/jmdict",
+        "end": {
+          "@id": "/c/en/example",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by-sa/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/jmdict/1.07",
+            "@type": "Source",
+            "contributor": "/s/resource/jmdict/1.07"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/お手本/n",
+          "@type": "Node",
+          "label": "お手本",
+          "language": "ja",
+          "sense_label": "n",
+          "term": "/c/ja/お手本"
+        },
+        "surfaceText": null,
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/no/eksempel/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/no/eksempel/n/wn/cognition",
+          "@type": "Node",
+          "label": "eksempel",
+          "language": "no",
+          "sense_label": "n, cognition",
+          "term": "/c/no/eksempel"
+        },
+        "surfaceText": "[[eksempel]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/規範/n/,/c/en/example/]",
+        "@type": "Edge",
+        "dataset": "/d/jmdict",
+        "end": {
+          "@id": "/c/en/example",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by-sa/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/jmdict/1.07",
+            "@type": "Source",
+            "contributor": "/s/resource/jmdict/1.07"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/規範/n",
+          "@type": "Node",
+          "label": "規範",
+          "language": "ja",
+          "sense_label": "n",
+          "term": "/c/ja/規範"
+        },
+        "surfaceText": null,
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/例え/n/jmdict/1/,/c/en/example/]",
+        "@type": "Edge",
+        "dataset": "/d/jmdict",
+        "end": {
+          "@id": "/c/en/example",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by-sa/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/jmdict/1.07",
+            "@type": "Source",
+            "contributor": "/s/resource/jmdict/1.07"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/例え/n/jmdict/1",
+          "@type": "Node",
+          "label": "例え",
+          "language": "ja",
+          "sense_label": "n",
+          "term": "/c/ja/例え"
+        },
+        "surfaceText": null,
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ar/مثال/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ar/مثال/n/wn/cognition",
+          "@type": "Node",
+          "label": "مِثَال",
+          "language": "ar",
+          "sense_label": "n, cognition",
+          "term": "/c/ar/مثال"
+        },
+        "surfaceText": "[[مِثَال]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/fr/exemple/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/fr/exemple/n/wn/cognition",
+          "@type": "Node",
+          "label": "exemple",
+          "language": "fr",
+          "sense_label": "n, cognition",
+          "term": "/c/fr/exemple"
+        },
+        "surfaceText": "[[exemple]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ms/pengajaran/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ms/pengajaran/n/wn/communication",
+          "@type": "Node",
+          "label": "pengajaran",
+          "language": "ms",
+          "sense_label": "n, communication",
+          "term": "/c/ms/pengajaran"
+        },
+        "surfaceText": "[[pengajaran]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/en/instance/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/en/instance/n/wn/cognition",
+          "@type": "Node",
+          "label": "instance",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/instance"
+        },
+        "surfaceText": "[[instance]] is a synonym of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/fi/havainto_opetus/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/fi/havainto_opetus/n/wn/communication",
+          "@type": "Node",
+          "label": "havainto-opetus",
+          "language": "fi",
+          "sense_label": "n, communication",
+          "term": "/c/fi/havainto_opetus"
+        },
+        "surfaceText": "[[havainto-opetus]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/ja/事例/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/ja/事例/n/wn/cognition",
+          "@type": "Node",
+          "label": "事例",
+          "language": "ja",
+          "sense_label": "n, cognition",
+          "term": "/c/ja/事例"
+        },
+        "surfaceText": "[[事例]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/fr/exemple/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/fr/exemple/n/wn/communication",
+          "@type": "Node",
+          "label": "exemple",
+          "language": "fr",
+          "sense_label": "n, communication",
+          "term": "/c/fr/exemple"
+        },
+        "surfaceText": "[[exemple]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/id/andai/n/wn/cognition/,/c/en/example/n/wn/cognition/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/cognition",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, cognition",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/id/andai/n/wn/cognition",
+          "@type": "Node",
+          "label": "andai",
+          "language": "id",
+          "sense_label": "n, cognition",
+          "term": "/c/id/andai"
+        },
+        "surfaceText": "[[andai]] is a translation of [[example]]",
+        "weight": 2.0
+      },
+      {
+        "@id": "/a/[/r/Synonym/,/c/pt/lição/n/wn/communication/,/c/en/example/n/wn/communication/]",
+        "@type": "Edge",
+        "dataset": "/d/wordnet/3.1",
+        "end": {
+          "@id": "/c/en/example/n/wn/communication",
+          "@type": "Node",
+          "label": "example",
+          "language": "en",
+          "sense_label": "n, communication",
+          "term": "/c/en/example"
+        },
+        "license": "cc:by/4.0",
+        "rel": {
+          "@id": "/r/Synonym",
+          "@type": "Relation",
+          "label": "Synonym"
+        },
+        "sources": [
+          {
+            "@id": "/s/resource/wordnet/rdf/3.1",
+            "@type": "Source",
+            "contributor": "/s/resource/wordnet/rdf/3.1"
+          }
+        ],
+        "start": {
+          "@id": "/c/pt/lição/n/wn/communication",
+          "@type": "Node",
+          "label": "lição",
+          "language": "pt",
+          "sense_label": "n, communication",
+          "term": "/c/pt/lição"
+        },
+        "surfaceText": "[[lição]] is a translation of [[example]]",
+        "weight": 2.0
+      }
+    ],
+    "version": "5.8.1",
+    "view": {
+      "@id": "/c/en/example?offset=0&limit=20",
+      "@type": "PartialCollectionView",
+      "comment": "There are more results. Follow the 'nextPage' link for more.",
+      "firstPage": "/c/en/example?offset=0&limit=20",
+      "nextPage": "/c/en/example?offset=20&limit=20",
+      "paginatedProperty": "edges"
+    }
+  }
