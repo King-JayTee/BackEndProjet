@@ -1,9 +1,7 @@
 <?php
-// Inclure le fichier database.php
-require_once 'database.php';
 
-// Fonction pour récupérer les faits de ConceptNet
-function getConceptNetFacts($concept, $lang) {
+function getConceptNetFacts($concept, $lang)
+{
     $url = "http://api.conceptnet.io/query?node=/c/$lang/$concept&rel=/r/CapableOf&limit=10";
     $response = file_get_contents($url);
     $data = json_decode($response, true);
@@ -17,21 +15,36 @@ function getConceptNetFacts($concept, $lang) {
     return $facts;
 }
 
-// Liste de concepts pour le seeding initial
-$concepts = ["dog", "cat", "house", "tree", "sun", "lune", "voiture", "livre"];
+function getInitialFacts()
+{
+    $concepts = [
+        "dog", "cat", "house", "tree", "sun", "lune", "computer", "chair",
+        "table", "phone", "pen", "book", "flower", "water", "music", "food",
+        "work", "job", "money", "time", "family", "health", "sport", "game",
+        "movie", "art", "science", "nature", "travel", "holiday", "end"
+    ];
 
-// Récupérer les faits de ConceptNet pour chaque concept
-$initialFacts = [];
-foreach ($concepts as $concept) {
-    $initialFacts = array_merge($initialFacts, getConceptNetFacts($concept, "en"));
-    $initialFacts = array_merge($initialFacts, getConceptNetFacts($concept, "fr"));
+    $initialFacts = [];
+    foreach ($concepts as $concept) {
+        $initialFacts = array_merge($initialFacts, getConceptNetFacts($concept, "en"));
+    }
+    print_r($initialFacts);
+    return $initialFacts;
 }
 
-// Insérer les faits initiaux dans la base de données
-insertExtractedData($initialFacts, $connection);
 
-// Fermer la connexion à la base de données
-closeConnection($connection);
+function generateConceptsHTML($initialFacts)
+{
+    $html = "<table border='1'>";
+    $html .= "<tr><th>Start</th><th>Relation</th><th>End</th></tr>";
+    foreach ($initialFacts as $fact) {
+        $html .= "<tr><td>" . htmlspecialchars($fact[0]) . "</td><td>" . htmlspecialchars($fact[1]) . "</td><td>" . htmlspecialchars($fact[2]) . "</td></tr>";
+    }
+    $html .= "</table>";
 
-echo "Les faits initiaux ont été insérés dans la base de données.";
-?>
+    $file = "../public/templates/concepts.html";
+    file_put_contents($file, $html);
+}
+
+$initialFacts = getInitialFacts();
+generateConceptsHTML($initialFacts);

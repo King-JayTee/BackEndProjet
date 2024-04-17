@@ -1,37 +1,26 @@
 <?php
 $servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-$dbname = "your_database";
+$username = "root";
+$password = "";
+$dbname = "conceptnet_db";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
+  // Utiliser les concepts encodés en HTML dans concepts.html au lieu de les récupérer depuis la base de données
 }
 
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$limit = 10; // number of records per page
-$offset = ($page - 1) * $limit;
-
-$sql = "SELECT * FROM faits LIMIT $offset, $limit"; // replace with query
+$sql = "SELECT start_concept, relation, end_concept FROM Facts";
 $result = $conn->query($sql);
 
-$data = [];
-$data['hasNextPage'] = $result->num_rows == $limit;
-
+$data = array();
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $data['faits'][] = $row;
-  }
-} else {
-  echo "0 results";
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
 }
 
-$conn->close();
-
-// echo the result in JSON format
 echo json_encode($data);
+
+$conn->close();
