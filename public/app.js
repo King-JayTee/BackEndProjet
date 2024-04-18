@@ -146,6 +146,3 @@ const app = $.sammy("#main", function () {
   });
 }).run();
 
-// $(function () {
-//   app.run("#/");
-// });
