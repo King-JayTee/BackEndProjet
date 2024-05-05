@@ -45,7 +45,6 @@
                     tableHtml += '<td>' + fait.end.label + '</td>';
                     tableHtml += '</tr>';
                 });
-
                 tableHtml += '</table>';
 
                 $('#main').html(tableHtml);
@@ -90,6 +89,7 @@
                         `;
 
                     $("#main").html(loginFormHtml);
+
                     $("#login-form").on("submit", function(e) {
                         e.preventDefault();
                         const username = $("#username").val();
@@ -191,7 +191,6 @@
                     var langue = this.params['langue'];
                     var concept = this.params['concept'];
 
-
                     fetchFacts(url, function(faits, nextUrl) {
                         displayFacts(faits);
 
@@ -211,7 +210,6 @@
                     var langue = this.params['langue'];
                     var concept = this.params['concept'];
 
-
                     fetchFacts(url, function(faits, nextUrl) {
                         displayFacts(faits);
 
@@ -228,7 +226,6 @@
 
                 this.get('#/relation/:relation', function() {
                     var relation = this.params['relation'];
-
 
                     fetchFacts(url, function(faits, nextUrl) {
                         displayFacts(faits);
@@ -247,6 +244,7 @@
                 function startTimer(duration, display) {
                     var timer = duration,
                         minutes, seconds;
+
                     var interval = setInterval(function() {
                         minutes = parseInt(timer / 60, 10);
                         seconds = parseInt(timer % 60, 10);
