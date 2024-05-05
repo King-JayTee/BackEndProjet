@@ -73,38 +73,38 @@
 
                 this.get("#/login", function() {
                     const loginFormHtml = `
-                     <h1>Connexion</h1>
-                     <form id="login-form">
-                         <div>
-                         <label for="username">Nom d'utilisateur :</label>
-                         <input type="text" id="username" name="username">
-                         </div>
-                         <div>
-                         <label for="password">Mot de passe :</label>
-                         <input type="password" id="password" name="password">
-                         </div>
-                         <div>
-                         <button type="submit">Se connecter</button>
-                         </div>
-                     </form>
-                     `;
+                        <h1>Connexion</h1>
+                        <form id="login-form">
+                            <div>
+                            <label for="username">Nom d'utilisateur :</label>
+                            <input type="text" id="username" name="username">
+                            </div>
+                            <div>
+                            <label for="password">Mot de passe :</label>
+                            <input type="password" id="password" name="password">
+                            </div>
+                            <div>
+                            <button type="submit">Se connecter</button>
+                            </div>
+                        </form>
+                        `;
 
                     $("#main").html(loginFormHtml);
-
                     $("#login-form").on("submit", function(e) {
                         e.preventDefault();
                         const username = $("#username").val();
                         const password = $("#password").val();
-                        username,
-                        password
-                    }, function(response) {
-                        console.log(response);
-                        if (response === "success") {
-                            sessionStorage.setItem("user", username);
-                            this.redirect("#/stats");
-                        } else {
-                            alert("Identifiants invalides");
-                        }
+                        $.post("./auth/login.php", {
+                            username,
+                            password
+                        }, function(response) {
+                            if (response === "success") {
+                                sessionStorage.setItem("user", username);
+                                this.redirect("#/login");
+                            } else {
+                                alert("Identifiants invalides");
+                            }
+                        });
                     });
                 });
 
