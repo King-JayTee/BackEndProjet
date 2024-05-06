@@ -4,20 +4,41 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: access, Content-Type, Authorization');
 header("Access-Control-Allow-Credentials: true");
 
-$dbHost = 'localhost';
-$dbName = 'conceptnet_db';
-$dbUsername = 'localhost';
-$dbPassword = '';
+$requestPath = trim($_SERVER['REQUEST_URI'], '/');
+$method = $_SERVER['REQUEST_METHOD'];
 
-$mysqli = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-} else {
-    echo "Connected successfully";
+switch ($requestPath) {
+    case 'concepts':
+        if ($method == 'GET') {
+            getConcepts($mysqli);
+        }
+        break;
+    case 'relations':
+        if ($method == 'GET') {
+            getRelations($mysqli);
+        }
+        break;
+    case 'users':
+        if ($method == 'GET') {
+            getUsers($mysqli);
+        }
+        break;
+    case 'users/create':
+        if ($method == 'POST') {
+            createUser($mysqli);
+        }
+        break;
+    case 'help':
+        if ($method == 'GET') {
+            getHelp();
+        }
+        break;
+    default:
+        echo json_encode(['message' => '404 Not Found']);
 }
 
-$app->get('concepts', function () use ($mysqli) {
+function getConcepts($mysqli)
+{
     $result = $mysqli->query('SELECT DISTINCT start_concept, end_concept FROM relations');
     $concepts = [];
     while ($row = $result->fetch_assoc()) {
@@ -25,40 +46,42 @@ $app->get('concepts', function () use ($mysqli) {
         $concepts[] = $row['end_concept'];
     }
     echo json_encode(array_unique($concepts));
-});
+}
 
-
-$app->get('/relations', function () use ($mysqli) {
+function getRelations($mysqli)
+{
     $result = $mysqli->query('SELECT DISTINCT relation FROM relations');
     $relations = [];
     while ($row = $result->fetch_assoc()) {
         $relations[] = $row;
     }
     echo json_encode($relations);
-});
+}
 
-$app->get('/users', function () use ($mysqli) {
+function getUsers($mysqli)
+{
     $result = $mysqli->query('SELECT username, score FROM users');
     $users = [];
     while ($row = $result->fetch_assoc()) {
         $users[] = $row;
     }
     echo json_encode($users);
-});
+}
 
-$app->post('/users/create', function () use ($mysqli) {
+function createUser($mysqli)
+{
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-
     $query = "INSERT INTO users (username, password, score) VALUES ('$username', '$password', 0)";
     if ($mysqli->query($query) === true) {
         echo json_encode(['message' => 'User created successfully']);
     } else {
         echo json_encode(['message' => 'Error: ' . $mysqli->error]);
     }
-});
+}
 
-$app->get('/help', function () {
+function getHelp()
+{
     $documentation = [
         'endpoints' => [
             '/concepts' => [
@@ -88,6 +111,5 @@ $app->get('/help', function () {
         ],
         'more_info' => 'For more details, refer to the full API documentation or contact the admin.'
     ];
-
     echo json_encode($documentation, JSON_PRETTY_PRINT);
-});
+}
