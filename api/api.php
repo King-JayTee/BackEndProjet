@@ -1,83 +1,93 @@
 <?php
-require_once 'config.php'; 
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: access, Content-Type, Authorization');
+header("Access-Control-Allow-Credentials: true");
 
-header("Content-Type: application/json");
+$dbHost = 'localhost';
+$dbName = 'conceptnet_db';
+$dbUsername = 'localhost';
+$dbPassword = '';
 
-switch ($_SERVER['REQUEST_METHOD']) {
-    case 'GET':
-        handleGetRequest();
-        break;
-    case 'POST':
-        handlePostRequest();
-        break;
-    default:
-        echo json_encode(["message" => "Méthode non supportée"]);
-        break;
+$mysqli = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+} else {
+    echo "Connected successfully";
 }
 
-function handleGetRequest() {
-    if ($_GET['path'] === 'concepts') {
-        getConcepts();
-    } elseif ($_GET['path'] === 'relations') {
-        getRelations();
-    } elseif ($_GET['path'] === 'users') {
-        getUsers();
-    } elseif ($_GET['path'] === 'help') {
-        getHelp();
-    } else {
-        echo json_encode(["message" => "Route non reconnue"]);
+$app->get('concepts', function () use ($mysqli) {
+    $result = $mysqli->query('SELECT DISTINCT start_concept, end_concept FROM relations');
+    $concepts = [];
+    while ($row = $result->fetch_assoc()) {
+        $concepts[] = $row['start_concept'];
+        $concepts[] = $row['end_concept'];
     }
-}
+    echo json_encode(array_unique($concepts));
+});
 
-function handlePostRequest() {
-    if ($_GET['path'] === 'users') {
-        createUser();
-    } else {
-        echo json_encode(["message" => "Route non reconnue"]);
+
+$app->get('/relations', function () use ($mysqli) {
+    $result = $mysqli->query('SELECT DISTINCT relation FROM relations');
+    $relations = [];
+    while ($row = $result->fetch_assoc()) {
+        $relations[] = $row;
     }
-}
-
-function getConcepts() {
-    global $conceptsFr;
-    echo json_encode($conceptsFr);
-}
-
-function getRelations() {
-    global $relations;
     echo json_encode($relations);
-}
+});
 
-function getUsers() {
-    global $conn;
-    $sql = "SELECT login, score FROM users";
-    $result = $conn->query($sql);
+$app->get('/users', function () use ($mysqli) {
+    $result = $mysqli->query('SELECT username, score FROM users');
     $users = [];
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $users[] = $row;
     }
     echo json_encode($users);
-}
+});
 
-function createUser() {
-    global $conn;
-    $data = json_decode(file_get_contents('php://input'), true);
-    $sql = "INSERT INTO users (login, password, score) VALUES (?, ?, 0)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $data['login'], $data['password']);
-    $stmt->execute();
-    echo json_encode(["message" => "Utilisateur créé avec succès"]);
-}
+$app->post('/users/create', function () use ($mysqli) {
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
 
-function getHelp() {
-    $help = [
-        "/concepts" => "Retourne la liste des concepts",
-        "/relations" => "Retourne la liste des relations",
-        "/users" => "Retourne la liste des utilisateurs",
-        "/users - POST" => "Crée un utilisateur avec login et mot de passe",
-        "/help" => "Retourne ce guide d'utilisation"
+    $query = "INSERT INTO users (username, password, score) VALUES ('$username', '$password', 0)";
+    if ($mysqli->query($query) === true) {
+        echo json_encode(['message' => 'User created successfully']);
+    } else {
+        echo json_encode(['message' => 'Error: ' . $mysqli->error]);
+    }
+});
+
+$app->get('/help', function () {
+    $documentation = [
+        'endpoints' => [
+            '/concepts' => [
+                'method' => 'GET',
+                'description' => 'Retrieves a list of all unique concepts from the database.',
+                'example_request' => 'GET http://yourdomain.com/concepts'
+            ],
+            '/relations' => [
+                'method' => 'GET',
+                'description' => 'Retrieves a list of all relations from the database.',
+                'example_request' => 'GET http://yourdomain.com/relations'
+            ],
+            '/users' => [
+                'method' => 'GET',
+                'description' => 'Retrieves a list of all users with their username and score.',
+                'example_request' => 'GET http://yourdomain.com/users'
+            ],
+            '/users/create' => [
+                'method' => 'POST',
+                'description' => 'Creates a new user with a zero score. Requires username and password as POST parameters.',
+                'example_request' => 'POST http://yourdomain.com/users/create',
+                'parameters' => [
+                    'username' => 'Desired username',
+                    'password' => 'Desired password'
+                ]
+            ]
+        ],
+        'more_info' => 'For more details, refer to the full API documentation or contact the admin.'
     ];
-    echo json_encode($help);
-}
 
-// Fermer la connexion
-$conn->close();
+    echo json_encode($documentation, JSON_PRETTY_PRINT);
+});
